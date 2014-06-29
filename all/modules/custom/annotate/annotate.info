@@ -1,7 +1,7 @@
-name = annotate
+name = Annotate
 description = 
-core = 6.x
-package = 
-php = 
-version =
-dependencies[] = 
+core = 7.x
+files[] = annotate.module
+files[] = annotate.install
+files[] = annotate.admin.inc
+configure=admin/config/content/annotate/settings
