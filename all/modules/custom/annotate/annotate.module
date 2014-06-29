@@ -34,5 +34,5 @@ function annotate_menu() {
     );
   
   return $items;
-  )
+  
 }
