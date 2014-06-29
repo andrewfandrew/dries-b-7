@@ -1,0 +1,7 @@
+name = annotate
+description = 
+core = 6.x
+package = 
+php = 
+version =
+dependencies[] = 
