@@ -22,12 +22,11 @@ function annotate_admin_settings() {
   }
   
   $form['annotate_node_types'] = array(
-    '#type' => 'Checkboxes',
+    '#type' => 'checkboxes',
     '#title' => t('Users may annotate these content types'),
     '#options' => $options,
     '#default_value' => variable_get('annotate_node_types', array('page')),
-    '#description' => t('A text field will be available on these content types to '
-        . 'make user-specific notes.'),
+    '#description' => t('A text field will be available on these content types to make user-specific notes.'),
     );
   $form['#submit'][] = 'annotate_admin_settings_submit';
   return system_settings_form($form);
@@ -37,7 +36,7 @@ function annotate_admin_settings() {
 /**
  * Process annotation settings submission.
  */
-function annotate_admin_settings_submit($form_state) {
+function annotate_admin_settings_submit($form, $form_state) {
   // Loop through each of the content type checkboxes shown on the form.
   foreach ($form_state['values']['annotate_node_types'] as $key => $value) {
     // If the check box for a content type is unchecked, look to see whether
@@ -47,8 +46,7 @@ function annotate_admin_settings_submit($form_state) {
       $instance = field_info_instance('node', 'annotation', $key);
       if (!empty($instance)) {
         field_delete_instance($instance);
-        watchdog("Annotation", 'Deleted annotation field from content type:'
-            . '%key', array('%key' => $key));
+        watchdog("Annotation", 'Deleted annotation field from content type: %key', array('%key' => $key));
       }
     } else {
       // If the check box for a content type is checked, look to see whether

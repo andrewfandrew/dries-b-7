@@ -50,5 +50,3 @@ function annotate_delete_annotation($type) {
     field_delete_instance($instance);
   }
 }
-  }
-}
