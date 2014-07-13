@@ -1,1 +1,74 @@
 <?php
+
+/**
+ * @file
+ * This module provides a node type called job post
+ */
+
+/**
+ * Implements hook_node_info() to provide our job_post type.
+ */
+function job_post_node_info() {
+  return array(
+  'job_post' => array(
+  'name' => t('Job Post'),
+  'base' => 'job_post',
+  'description' => t('Use this content type to post a job.'),
+  'has_title' => TRUE,
+  'title_label' => t('Job Title'),
+  'help' => t('Enter the job title, '
+  . 'job description, and the name of the company that posted the job'),
+      ),
+    );
+  
+} 
+
+/**
+ * Implements hook_menu_alter().
+ * 
+ * This code removes the link for all but administrators from the admin menu
+ * But this code is not essential, so i have disabled it.
+ * However, it is worth trying out.
+ * 
+ 
+ function job_post_menu_alter(&$callbacks) {
+   // if the user does not have 'administer nodes' premission,
+   // disable the job_post menu item by setting its access callback to FALSE.
+   if (!user_access('administer nodes')) {
+     $callbacks['node/add/job_post']['access callback'] = FALSE;
+     // Must unset access arguments or Drupal will use user_access()
+     // as a default access callback.
+     unset($callbacks['node/add/job_post']['access arguments']);
+   }
+ }
+ 
+*/
+
+/**
+ * Implements hook_permission().
+ * 
+ */
+function job_post_permission() {
+  return array(
+    'create job post' => array(
+      'title' => t('Create a job post'),
+      'description' => t('Create a job post'),
+      ),
+    'edit own job post' => array(
+      'title' => t('Edit own job post'),
+      'description' => t('Edit your own job posting'),
+      ),
+    'edit any job post' => array(
+      'title' => t('Edit any job post'),
+      'description' => t('Edit any job posting'),
+      ),
+    'delete own job post' => array(
+      'title' => t('Delete own job post'),
+      'description' => t('Delete own job posting'),
+      ),
+    'delete any job post' => array(
+      'title' => t('Delete any job post'),
+      'description' => t('Delete any job posting'),
+    )
+  );
+}

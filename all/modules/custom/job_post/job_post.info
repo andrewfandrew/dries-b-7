@@ -1,5 +1,4 @@
 name = Job post
 description = A job posting content type
-core = 7.x
 package = Pro Drupal Development
-
+core = 7.x
