@@ -72,3 +72,37 @@ function job_post_permission() {
     )
   );
 }
+
+/**
+ * Implements hook_validate(). [p.149, Pro Drupal 7 Dev]
+ */
+// function job_post_validate($node) {
+
+/**
+ * Implements hook_insert().
+ */
+
+/**
+ * Implements hook_update().
+ */
+
+/**
+ * Implements hook_delete().
+ */
+
+// Modifying Noes of Our Type with hook_load()
+/**
+ * Implements hook_load().
+ */
+
+// you cannot see the sponsor info until you use hook_view
+/**
+ * Implements hook_view().
+ */
+
+/**
+ * Implements hook_theme().
+ */
+
+// Finally, create a sponsor.tpl.php template file in the module directory
+// Copy the one on p.152
